@@ -1,0 +1,19 @@
+# Herramientas locales (estado del entorno, no contenido del repo)
+.omo/
+.codegraph/
+
+# Python (scripts/validate_flows.py)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Entorno y secretos
+.env
+.env.*
+
+# SO y editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

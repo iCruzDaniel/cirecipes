@@ -1,0 +1,35 @@
+# Validación interna de la biblioteca de flujos CI/CD.
+# Ejecuta scripts/validate_flows.py para verificar:
+#   - Sintaxis YAML de todos los flujos recopilados.
+#   - Que todo directorio de flujo contenga su manifest.yml obligatorio.
+#   - Coherencia entre el id del manifest, la versión SemVer y la carpeta vN/.
+
+name: Lint Flows
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validar biblioteca de flujos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar PyYAML
+        run: pip install pyyaml
+
+      - name: Validar flujos
+        run: python scripts/validate_flows.py

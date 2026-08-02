@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="lg-brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#3fb950" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="48" ry="48" fill="#0d1117"/>
+
+  <!-- Subtle ambient glow -->
+  <circle cx="256" cy="256" r="200" fill="url(#lg-brand)"/>
+
+  <!-- ===== Pipeline motif: 3 nodes in a stepped flow ===== -->
+
+  <!-- Connecting line: node 1 to node 2 -->
+  <line x1="148" y1="230" x2="224" y2="230"
+    stroke="#30363d" stroke-width="3"/>
+
+  <!-- Connecting line: node 2 to node 3 -->
+  <line x1="288" y1="230" x2="364" y2="230"
+    stroke="#30363d" stroke-width="3"/>
+
+  <!-- Node 1: trigger (blue outline) -->
+  <circle cx="120" cy="230" r="32" fill="#0d1117" stroke="#58a6ff" stroke-width="3"/>
+  <!-- Inner dot -->
+  <circle cx="120" cy="230" r="6" fill="#58a6ff"/>
+
+  <!-- Node 2: process (blue outline) -->
+  <circle cx="256" cy="230" r="32" fill="#0d1117" stroke="#58a6ff" stroke-width="3"/>
+  <!-- Small gear-like inner shape -->
+  <rect x="244" y="218" width="24" height="24" rx="3" fill="none" stroke="#58a6ff" stroke-width="2"/>
+
+  <!-- Node 3: success (green filled) -->
+  <circle cx="392" cy="230" r="32" fill="#3fb950" stroke="none"/>
+  <!-- Checkmark -->
+  <path d="M377,230 l8,8 l16,-16" fill="none" stroke="#0d1117" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Small decorative: "CI" text below -->
+  <text
+    x="256" y="320"
+    font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,'Liberation Mono',monospace"
+    font-size="36" font-weight="700" fill="#30363d"
+    text-anchor="middle"
+  >CI</text>
+
+</svg>

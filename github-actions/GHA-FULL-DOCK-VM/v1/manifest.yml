@@ -1,0 +1,42 @@
+# Ficha técnica del flujo GHA-FULL-DOCK-VM v1
+# Workflow original: "Build & Push Docker Image"
+
+id: GHA-FULL-DOCK-VM
+version: 1.0.0
+plataforma: github-actions
+stack:
+  lenguaje: docker
+  framework: docker compose
+arquitectura:
+  tipo: contenedor
+  destino: virtual-machine
+  despliegue_via: ssh + docker compose (appleboy/ssh-action + appleboy/scp-action)
+version_compatibilidad:
+  github_runner: ubuntu-latest
+  acciones:
+    - actions/checkout@v5
+    - docker/setup-buildx-action@v4
+    - docker/login-action@v4
+    - docker/metadata-action@v6
+    - docker/build-push-action@v7
+    - appleboy/ssh-action@v1
+    - appleboy/scp-action@v1
+secretos_requeridos:
+  - DOCKER_USERNAME
+  - DOCKER_PASSWORD
+  - VPS_HOST
+  - VPS_PORT (opcional, default 22)
+  - VPS_USER
+  - VPS_SSH_KEY
+variables_entorno:
+  - IMAGE_NAME (default: ${{ secrets.DOCKER_USERNAME }}/waitlistgo)
+trigger:
+  - push a main
+  - tags v*.*.*
+  - workflow_dispatch
+notas:
+  - El job "deploy" solo corre sobre main y necesita de un archivo
+    docker-compose.yml en la raíz del repositorio destino (se sube por SCP).
+  - En el VPS los pasos crean /opt/waitlistgo, hacen pull de la imagen y
+    levantan los contenedores con "docker compose up -d".
+  - El nombre "waitlistgo" es el de la aplicación de origen; adaptar para otros proyectos.

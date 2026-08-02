@@ -1,0 +1,33 @@
+# Ficha técnica del flujo GHA-DEPLOY-DOCK-REG v1
+# Workflow original: "Deploy to Dokploy"
+
+id: GHA-DEPLOY-DOCK-REG
+version: 1.0.0
+plataforma: github-actions
+stack:
+  lenguaje: docker
+  framework: dokploy
+arquitectura:
+  tipo: contenedor
+  destino: container-registry
+  despliegue_via: ghcr.io (la imagen la consume Dokploy para desplegar)
+version_compatibilidad:
+  github_runner: ubuntu-latest
+  acciones:
+    - actions/checkout@v4
+    - docker/setup-buildx-action@v3
+    - docker/login-action@v3
+    - docker/metadata-action@v5
+    - docker/build-push-action@v6
+secretos_requeridos:
+  - GITHUB_TOKEN (automático; requiere permiso packages: write en el job)
+variables_entorno:
+  - REGISTRY (default: ghcr.io)
+  - IMAGE_NAME (default: ${{ github.repository }})
+trigger:
+  - push a main
+  - workflow_dispatch
+notas:
+  - El workflow no despliega directamente; publica la imagen en GHCR y Dokploy
+    detecta la imagen nueva para realizar el deploy.
+  - Los tags generados son type=sha y latest.

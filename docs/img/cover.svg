@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400" width="1600" height="400">
+  <defs>
+    <linearGradient id="glow-blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glow-green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3fb950" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#3fb950" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="400" fill="#0d1117"/>
+
+  <!-- Subtle ambient glow top-right -->
+  <ellipse cx="1200" cy="80" rx="500" ry="250" fill="url(#glow-blue)"/>
+  <!-- Subtle ambient glow bottom-left -->
+  <ellipse cx="350" cy="360" rx="400" ry="180" fill="url(#glow-green)"/>
+
+  <!-- ===== LEFT: Text content ===== -->
+
+  <!-- Wordmark: cirecipes -->
+  <text
+    x="100" y="195"
+    font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,'Liberation Mono',monospace"
+    font-size="88" font-weight="700" fill="#58a6ff"
+    text-anchor="start"
+  >cirecipes</text>
+
+  <!-- Subtitle -->
+  <text
+    x="102" y="245"
+    font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,'Liberation Mono',monospace"
+    font-size="26" font-weight="400" fill="#8b949e"
+    text-anchor="start"
+  >Biblioteca de flujos CI/CD</text>
+
+  <!-- Tagline -->
+  <text
+    x="102" y="290"
+    font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,'Liberation Mono',monospace"
+    font-size="18" font-weight="400" fill="#484f58"
+    text-anchor="start"
+  >Flujos listos para copiar y pegar</text>
+
+  <!-- ===== RIGHT: Terminal + Pipeline visual ===== -->
+
+  <!-- Terminal window container -->
+  <rect x="780" y="50" width="740" height="300" rx="12" ry="12"
+    fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Terminal title bar -->
+  <rect x="780" y="50" width="740" height="36" rx="12" ry="12"
+    fill="#1c2128"/>
+  <rect x="780" y="74" width="740" height="12"
+    fill="#1c2128"/>
+
+  <!-- Traffic light dots -->
+  <circle cx="804" cy="68" r="5" fill="#d29922"/>
+  <circle cx="822" cy="68" r="5" fill="#3fb950"/>
+  <circle cx="840" cy="68" r="5" fill="#f85149"/>
+
+  <!-- Terminal title text -->
+  <text
+    x="1150" y="73"
+    font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,'Liberation Mono',monospace"
+    font-size="13" fill="#484f58" text-anchor="middle"
+  >cirecipes/pipeline.yml</text>
+
+  <!-- ===== Pipeline diagram inside terminal ===== -->
+
+  <!-- Horizontal pipeline line -->
+  <line x1="840" y1="180" x2="1440" y2="180"
+    stroke="#30363d" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Node 1: push (blue) -->
+  <circle cx="870" cy="180" r="18" fill="#0d1117" stroke="#58a6ff" stroke-width="2.5"/>
+  <text x="870" y="184" font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,monospace"
+    font-size="11" fill="#58a6ff" text-anchor="middle" font-weight="600">push</text>
+
+  <!-- Node 2: build (blue) -->
+  <circle cx="1010" cy="180" r="18" fill="#0d1117" stroke="#58a6ff" stroke-width="2.5"/>
+  <text x="1010" y="184" font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,monospace"
+    font-size="11" fill="#58a6ff" text-anchor="middle" font-weight="600">build</text>
+
+  <!-- Node 3: test (green) -->
+  <circle cx="1150" cy="180" r="18" fill="#0d1117" stroke="#3fb950" stroke-width="2.5"/>
+  <text x="1150" y="184" font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,monospace"
+    font-size="11" fill="#3fb950" text-anchor="middle" font-weight="600">test</text>
+
+  <!-- Node 4: deploy (green) -->
+  <circle cx="1290" cy="180" r="18" fill="#0d1117" stroke="#3fb950" stroke-width="2.5"/>
+  <text x="1290" y="184" font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,monospace"
+    font-size="11" fill="#3fb950" text-anchor="middle" font-weight="600">deploy</text>
+
+  <!-- Node 5: done (green, filled) -->
+  <circle cx="1430" cy="180" r="14" fill="#3fb950" stroke="none"/>
+  <path d="M1423,180 l4,4 l7,-8" fill="none" stroke="#0d1117" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ===== Code chips (decorative, low contrast) ===== -->
+
+  <!-- Chip: GHA -->
+  <rect x="810" y="110" width="58" height="24" rx="4" fill="#21262d"/>
+  <text x="839" y="126" font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,monospace"
+    font-size="11" fill="#484f58" text-anchor="middle">GHA</text>
+
+  <!-- Chip: YAML -->
+  <rect x="882" y="110" width="62" height="24" rx="4" fill="#21262d"/>
+  <text x="913" y="126" font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,monospace"
+    font-size="11" fill="#484f58" text-anchor="middle">YAML</text>
+
+  <!-- Chip: manifest.yml -->
+  <rect x="958" y="110" width="120" height="24" rx="4" fill="#21262d"/>
+  <text x="1018" y="126" font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,monospace"
+    font-size="11" fill="#484f58" text-anchor="middle">manifest.yml</text>
+
+  <!-- Bottom status line in terminal -->
+  <text x="810" y="310" font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,monospace"
+    font-size="12" fill="#3fb950">$</text>
+  <text x="826" y="310" font-family="'JetBrains Mono','Fira Code','SF Mono',Consolas,monospace"
+    font-size="12" fill="#8b949e">gh workflow run deploy.yml --ref main</text>
+
+  <!-- Cursor blink -->
+  <rect x="1110" y="298" width="8" height="16" fill="#58a6ff" opacity="0.8"/>
+
+</svg>
